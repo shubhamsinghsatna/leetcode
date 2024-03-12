@@ -5,9 +5,9 @@ class Solution {
             sum += nums[i];
         }
         int leftSum = 0;
-        int rightSum = 0;
+        int rightSum = sum;
         for(int i = 0; i < nums.length; i++) {
-            rightSum = sum - nums[i] - leftSum;
+            rightSum -= nums[i];
             if(leftSum == rightSum) {
                 return i;
             }
