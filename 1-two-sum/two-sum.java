@@ -1,12 +1,17 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] ans = new int[2];
-        for(int i=0;i<nums.length;i++){
-            for(int j=i+1;j<nums.length;j++)
-            if( (nums[i]+nums[j]) == target){
-                ans[0]=i;
-                ans[1]=j;
+        Map<Integer, Integer> hashMap = new HashMap<>();
+        int n = nums.length;
+
+        for(int i=0;i<n;i++){
+            int remain = target - nums[i];
+            if(hashMap.containsKey(remain)){
+                ans[0] = i;
+                ans[1] = hashMap.get(remain);
+                return ans;
             }
+            hashMap.put(nums[i],i);
         }
         return ans;
     }
