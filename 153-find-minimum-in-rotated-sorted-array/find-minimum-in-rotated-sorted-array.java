@@ -4,19 +4,19 @@ class Solution {
         int end=nums.length-1;
         int ans=nums[0];
 
-
         while(start<=end){
-            int mid = start + (end-start)/2;
+            int mid = start+(end-start)/2;
             if(nums[start]<=nums[mid]){
-                if(nums[start]<=ans){
-                    ans = nums[start];
-                }
-                start=mid+1;
-            }else{
                 if(nums[start]<=ans){
                     ans=nums[start];
                 }
-                end = mid;
+                start=mid+1;
+            }
+            else{
+                if(nums[start]<=ans){
+                    ans=nums[start];
+                }
+                end=mid;
             }
         }
         return ans;
